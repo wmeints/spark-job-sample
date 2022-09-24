@@ -5,4 +5,4 @@ package com.infosupport.sparkjob
  * are a great example of options to use in a job.
  * @param inputPath Path where the input file is located.
  */
-case class SparkJobConfig(inputPath: String)
+case class SparkJobConfig(inputPath: String = "")
