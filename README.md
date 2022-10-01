@@ -110,6 +110,13 @@ In addition to unit-tests, I recommend writing a couple of integration tests. Th
 against a local storage source. This gives you a somewhat comparable environment to what you'll get in a full Spark
 cluster.
 
+### Generating test data
+
+If you're writing tests for your Spark job, you'll need to generate test data. I recommend using
+[Scalacheck][SCALACHECK] and [Scalacheck-faker][FAKER] to generate test instances of various pieces of data.
+
+I've included a `TestData` object in the test package to show you how I generate test data for the project.
+
 ### Working with schemas
 
 As tempting as it may sound, working with untyped data frames is a bad idea. You'll quickly end up with a lot of
@@ -137,3 +144,16 @@ The project includes both integration tests and unit tests. You can run the usin
 * `sbt IntegrationTest/test` - Runs the integration tests
 
 If you're running from the `sbt` shell, you can just type `test` or `IntegrationTest/test`.
+
+## Increasing productivity
+
+While Spark already offers a large number of utility functions to make your life easier, you'll quickly find that it's
+incomplete. I've included [Spark-Daria][DARIA] for this reason. It provides a number of useful utilities:
+
+- Schema validation for data frames and datasets.
+- Various column transformations and checks to make the code more readable.
+- Column presence checks.
+
+[SCALACHECK]: https://scalacheck.org/documentation.html
+[FAKER]: https://github.com/etspaceman/scalacheck-faker
+[DARIA]: https://github.com/MrPowers/spark-daria
